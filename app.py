@@ -65,7 +65,7 @@ def handle_message(event):
         return 0
     if event.message.text == "Event":
         imagemap_message = ImagemapSendMessage(
-            base_url='https://imgur.com/FxAkZeU.jpg',
+            base_url='https://imgur.com/TSk3Wrq.jpg',
             alt_text='Event LR Hari ini',
             base_size=BaseSize(height=1040, width=1040),
             actions=[
