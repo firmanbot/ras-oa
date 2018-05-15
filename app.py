@@ -63,193 +63,21 @@ def handle_message(event):
         text_message = TextSendMessage(text='Ayo coba lagi kak. ketik Hadiah')
         line_bot_api.reply_message(event.reply_token, text_message)
         return 0
-    if event.message.text == "Hadiah":
-        lk1 = ['obat nyamuk','istimewa','yah dapet zonk','duit mini']
-        kk1 = random.choice(lk1)
-        buttons_template = TemplateSendMessage(
-            alt_text='Hadiah Kejutan',
-            template=ButtonsTemplate(
-                title='Hadiah Kejutan',
-                text='Ayo buka kejutanmu!!!',
-                thumbnail_image_url='https://imgur.com/CVpvIdt.jpg',
-                actions=[
-                    MessageTemplateAction(
-                        label='Buka Sekarang!!',
-                        text=kk1
+    if event.message.text == "Event":
+        imagemap_message = ImagemapSendMessage(
+            base_url='https://imgur.com/FxAkZeU.jpg',
+            alt_text='Event LR Hari ini',
+            base_size=BaseSize(height=1040, width=1040),
+            actions=[
+                MessageImagemapAction(
+                    text='Dibaca ya bukan di klik gambarnya',
+                    area=ImagemapArea(
+                        x=1, y=0, width=10, height=10
                     )
-                ]
-            )
+                )
+            ]
         )
-        line_bot_api.reply_message(event.reply_token, buttons_template)
-        return 0
-    if event.message.text == "Kontak Pgrs":    
-        carousel_template_message = TemplateSendMessage(
-            alt_text='Kontak Pengurus',
-            template=CarouselTemplate(
-                columns=[
-                    CarouselColumn(
-                        thumbnail_image_url='https://imgur.com/cUO27Yd.jpg',
-                        title='Kontak Pengurus',
-                        text='Pilih salah satu',
-                        actions=[
-                            MessageTemplateAction(
-                                label='Leader',
-                                text='Leader ori'
-                            ),
-                            MessageTemplateAction(
-                                label='Colead',
-                                text='Colead ori'
-                            ),
-                            MessageTemplateAction(
-                                label='Admin',
-                                text='Admin ori'
-                            )
-                        ]
-                    ),
-                    CarouselColumn(
-                        thumbnail_image_url='https://imgur.com/23TcxK5.jpg',
-                        title='Kontak Pengurus',
-                        text='Pilih salah satu',
-                        actions=[
-                            MessageTemplateAction(
-                                label='Penasehat',
-                                text='Penasehat ori'
-                            ),
-                            MessageTemplateAction(
-                                label='Staff',
-                                text='Staff ori'
-                            ),
-                            MessageTemplateAction(
-                                label='Emak',
-                                text='Emak ori'
-                            )
-                        ]
-                    )
-                ]
-            )
-        )
-        line_bot_api.reply_message(event.reply_token, carousel_template_message)
-        return 0
-    if event.message.text == "About bot":
-        buttons_template = TemplateSendMessage(
-            alt_text='About ORI Bot',
-            template=ButtonsTemplate(
-                title='About ORI Bot',
-                text='Pilih salah satu menu dibawah ini',
-                thumbnail_image_url='https://imgur.com/qNOi0Qu.jpg',
-                actions=[
-                    MessageTemplateAction(
-                        label='Developer',
-                        text='Bot developer'
-                    ),
-                    MessageTemplateAction(
-                        label='Version',
-                        text='Version'
-                    ),
-                    MessageTemplateAction(
-                        label='Info ORI Bot',
-                        text='Info bot'
-                    )
-                ]
-            )
-        )
-        line_bot_api.reply_message(event.reply_token, buttons_template)
-        return 0
-    if event.message.text == "Key":
-        buttons_template = TemplateSendMessage(
-            alt_text='Key ØRI',
-            template=ButtonsTemplate(
-                title='Key ØRI',
-                text='Pilih salah satu menu dibawah ini',
-                thumbnail_image_url='https://imgur.com/CVpvIdt.jpg',
-                actions=[
-                    MessageTemplateAction(
-                        label='About ORI',
-                        text='ORI grup'
-                    ),
-                    MessageTemplateAction(
-                        label='More Keyword',
-                        text='Help'
-                    ),
-                    MessageTemplateAction(
-                        label='About ORI Bot',
-                        text='About bot'
-                    )
-                ]
-            )
-        )
-        line_bot_api.reply_message(event.reply_token, buttons_template)
-        return 0
-    if event.message.text == "ORI grup":
-        buttons_template = TemplateSendMessage(
-            alt_text='About ORI',
-            template=ButtonsTemplate(
-                title='About ORI',
-                text='Pilih salah satu menu dibawah ini',
-                thumbnail_image_url='https://imgur.com/vNZlfOA.jpg',
-                actions=[
-                    MessageTemplateAction(
-                        label='Pengurus',
-                        text='Pengurus'
-                    ),
-                    MessageTemplateAction(
-                        label='Rules',
-                        text='Rules'
-                    ),
-                    URITemplateAction(
-                        label='Guild',
-                        uri='http://line.me/R/home/public/post?id=wnq1836k&postId=1151441933104021159'
-                    ),
-                    URITemplateAction(
-                        label='Filosofi',
-                        uri='http://line.me/R/home/public/post?id=wnq1836k&postId=1152422979304029812'
-                    )
-                ]
-            )
-        )
-        line_bot_api.reply_message(event.reply_token, buttons_template)
-        return 0
-    if event.message.text == "Pengurus":
-        buttons_template = TemplateSendMessage(
-            alt_text='Pengurus ØRI',
-            template=ButtonsTemplate(
-                title='Pengurus ØRI',
-                text='Mau lihat pengurus lewat apa?',
-                thumbnail_image_url='https://imgur.com/ea72IkU.jpg',
-                actions=[
-                    MessageTemplateAction(
-                        label='Kontak',
-                        text='Kontak Pgrs'
-                    ),
-                    URITemplateAction(
-                        label='Gambar',
-                        uri='http://line.me/R/home/public/post?id=wnq1836k&postId=1151442178104024988'
-                    )
-                ]
-            )
-        )
-        line_bot_api.reply_message(event.reply_token, buttons_template)
-        return 0
-    if event.message.text == "Rules":
-        buttons_template = TemplateSendMessage(
-            alt_text='Rules ØRI',
-            template=ButtonsTemplate(
-                title='Rules ØRI',
-                text='Dalam versi apa?',
-                thumbnail_image_url='https://imgur.com/8udTsks.jpg',
-                actions=[
-                    MessageTemplateAction(
-                        label='Teks',
-                        text='Rules full'
-                    ),
-                    URITemplateAction(
-                        label='Gambar',
-                        uri='http://line.me/R/home/public/post?id=wnq1836k&postId=1151442807704026737'
-                    )
-                ]
-            )
-        )
-        line_bot_api.reply_message(event.reply_token, buttons_template)
+        line_bot_api.reply_message(event.reply_token, imagemap_message)
         return 0
     if event.message.text == "Wexm":
         buttons_template = TemplateSendMessage(
